@@ -1,0 +1,13 @@
+<h1>Configurar el Sorteo</h1>
+<p>Total de Participantes: {{total}}</p>
+<p>Con Chances: {{conChances.length}}</p>
+<p>Sin Chances: {{sinChances.length}}</p>
+
+<form action="/confirmar-sorteo" method="POST">
+  <input type="hidden" name="participantes" value="{{jsonParticipantes}}"> <!-- Campo oculto con participantes -->
+  <label for="ganadores">Número de ganadores:</label>
+  <input type="number" name="ganadores" id="ganadores" required>
+  <label for="suplentes">Número de suplentes:</label>
+  <input type="number" name="suplentes" id="suplentes" required>
+  <button type="submit">Confirmar Sorteo</button>
+</form>

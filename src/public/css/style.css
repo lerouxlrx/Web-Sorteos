@@ -1,0 +1,60 @@
+/*Header*/
+.imgEncabezado {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*Home*/
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Espacio entre los elementos */
+    background-color: #f0f0f0;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+.labelHome {
+    font-weight: bold;
+  }
+.inputHome {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 75%;
+    box-sizing: border-box;
+  }
+.btnHome {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.btnHome:hover {
+  background-color: #0056b3;
+}
+.custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background: #475462;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+.input-file {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+  }

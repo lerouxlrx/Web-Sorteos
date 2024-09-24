@@ -1,0 +1,16 @@
+<h1>Resultados del Sorteo</h1>
+<h2>Ganadores</h2>
+<ul>
+  {{#each participantesGanadores}}
+    <li>{{this.Nombre}} - Chances: {{this.Chances}}</li>
+  {{/each}}
+</ul>
+
+<h2>Suplentes</h2>
+<ul>
+  {{#each participantesSuplentes}}
+    <li>{{this.Nombre}} - Chances: {{this.Chances}}</li>
+  {{/each}}
+</ul>
+
+<a href="/resultado_sorteo.pdf" download="resultadoSorteo.pdf">Descargar en PDF</a>
