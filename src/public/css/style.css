@@ -1,60 +1,133 @@
-/*Header*/
-.imgEncabezado {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
+/*General*/
+* {
+  padding: 0px;
+  margin: 0px;
+  color: rgb(60, 60, 59);
+  font-family: Arial, sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.contenedorHeader {
+  background-color: rgb(231, 51, 41);
+  height: 200px;
+}
+.contenedorFooter {
+  flex: 0 0 auto;
+  margin-top: auto;
+  height: 100px;
+  background-color: rgb(237, 239, 238);
+  border-top: 5px solid rgb(23, 71, 145);
+}
+.contenedorMain {
+  padding: 20px;
+  background-color: rgb(237, 239, 238);
+  margin: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/*Home*/
-.formulario {
+  /*Home*/
+  .formulario {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+  }
+  .labelHome {
+      font-weight: bold;
+  }
+  .inputHome {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 75%;
+      box-sizing: border-box;
+  }
+  .btnHome {
+    background-color: rgb(23, 71, 145);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+  .btnHome:hover {
+    background-color: #0056b3;
+  }
+  .custom-file-label {
+      display: inline-block;
+      padding: 10px 20px;
+      border: none;
+      background: rgb(124, 120, 120);
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+  .input-file {
+      position: absolute;
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      z-index: -1;
+  }
+
+  /*Configurador*/
+  .contenedor {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem; /* Espacio entre los elementos */
-    background-color: #f0f0f0;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
   }
-.labelHome {
+  .contenedorConfigurar {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .tituloConfigurar {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .contenedorInformacion {
+    align-items: center;
+  }
+  .informacionConfigurar {
+    margin-bottom: 10px;
+  }
+  .contenedorFormConfigurar {
+    width: 80%;
+  }
+  .completarDatos {
+    width: 100%;
+    padding: 10px;
+  }
+  .contenedorFormConfigurar label {
     font-weight: bold;
   }
-.inputHome {
+  .contenedorFormConfigurar input[type="number"] {
+    width: 80%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 75%;
-    box-sizing: border-box;
   }
-.btnHome {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 15px 30px;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-}
-.btnHome:hover {
-  background-color: #0056b3;
-}
-.custom-file-label {
-    display: inline-block;
-    padding: 10px 20px;
-    border: none;
-    background: #475462;
+  .btnRealizar {
+    background-color: rgb(23, 71, 145);
     color: #fff;
+    margin: 10px;
+    padding: 10px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    width: 100%;
+    font-weight: bold;
+    font-size: 20px;
   }
-.input-file {
-    position: absolute;
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    z-index: -1;
+  .btnRealizar:hover {
+    background-color: #0056b3;
   }

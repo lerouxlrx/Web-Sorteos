@@ -1,14 +1,11 @@
-<form action="/upload" method="POST" enctype="multipart/form-data">
-<div class="formulario">
-{{!--   <label class="labelHome" for="sorteo">Nombre del sorteo:</label>
-  <input class="inputTextHome inputHome" type="text" id="sorteo" name="sorteo"> --}}
-
-  <label class="labelHome" for="file">Seleccionar base .xlsx:</label>
-  <label for="file" class="custom-file-label" >
-  Elegir archivo
-    <input class="input-file" type="file" id="file" name="file" accept=".xlsx" required>
-  </label>
-
-  <button class="btnHome" type="submit">Cargar base</button>
+<div class="contenedorHome">
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="formulario">
+{{!--       <label class="labelHome" for="sorteo">Nombre del sorteo:</label>
+      <input class="inputTextHome inputHome" type="text" id="sorteo" name="sorteo"> --}}
+      <label for="file" class="custom-file-label">  Elegir base (.xlsx)<input class="input-file" type="file" id="file" name="file" accept=".xlsx" required>
+      </label>
+      <button class="btnHome" type="submit">Cargar base</button>
+    </div>
+  </form>
 </div>
-</form>

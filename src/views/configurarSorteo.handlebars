@@ -1,13 +1,21 @@
-<h1>Configurar el Sorteo</h1>
-<p>Total de Participantes: {{total}}</p>
-<p>Con Chances: {{conChances.length}}</p>
-<p>Sin Chances: {{sinChances.length}}</p>
-
-<form action="/confirmar-sorteo" method="POST">
-  <input type="hidden" name="participantes" value="{{jsonParticipantes}}"> <!-- Campo oculto con participantes -->
-  <label for="ganadores">Número de ganadores:</label>
-  <input type="number" name="ganadores" id="ganadores" required>
-  <label for="suplentes">Número de suplentes:</label>
-  <input type="number" name="suplentes" id="suplentes" required>
-  <button type="submit">Confirmar Sorteo</button>
-</form>
+<div class="contenedorConfigurar contenedor">
+  <h1 class="titulo tituloConfigurar">Preparación del sorteo</h1>
+  <div class="contenedorInformacion contenedorInformacionConfigurar contenedor">
+    <h3 class= "informacion informacionConfigurar">Participantes: {{conChances.length}}</h3>
+{{!--     <h3 class= "informacion informacionConfigurar">Total participantes: {{total}}</h3>
+    <h3 class= "informacion informacionConfigurar">Con chances: {{conChances.length}}</h3>
+    <h3 class= "informacion informacionConfigurar">Sin chances: {{sinChances.length}}</h3> --}}
+  </div>
+  <form action="/confirmar-sorteo" method="POST" class="contenedorForm contenedorFormConfigurar contenedor">
+    <input type="hidden" name="participantes" value="{{jsonParticipantes}}"> <!-- Campo oculto con participantes -->
+    <div class="completarDatos completarGanadores contenedor">
+      <label for="ganadores">Elegir cantidad ganadores</label>
+      <input type="number" name="ganadores" id="ganadores" required>
+    </div>
+    <div class="completarDatos completarGanadores contenedor">
+      <label for="suplentes">Elegir cantidad suplentes</label>
+      <input type="number" name="suplentes" id="suplentes" required>
+    </div>
+    <button class="btn btnConfigurar btnRealizar" type="submit">Realizar Sorteo</button>
+  </form>
+</div>
