@@ -28,21 +28,28 @@ body {
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.btn {
-  background-color: rgb(23, 71, 145);
-  color: #fff;
-  margin: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  width: 100%;
-  font-weight: bold;
-  font-size: 18px;
-}
-.btn:hover {
-  background-color: #0056b3;
-}
+
+  /*Paginas*/
+  .btn {
+    background-color: rgb(23, 71, 145);
+    color: #fff;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  .titulo {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+  }
 
   /*Home*/
   .formulario {
@@ -83,20 +90,19 @@ body {
     max-width: 300px;
   }
 
-  /*Configurador*/
+  /*Configurador y resultados*/
   .contenedor {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
+
+  /*Configurador*/
   .contenedorConfigurar {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-  }
-  .tituloConfigurar {
-    text-align: center;
-    margin-bottom: 20px;
   }
   .contenedorInformacion {
     align-items: center;
@@ -119,4 +125,36 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    text-align: center;
+  }
+
+  /*Resultados*/
+  .tituloResultado {
+    color: rgb(23, 71, 145);
+  }
+  .subtituloResultado {
+    font-size: 24px;
+    color: rgb(23, 71, 145)
+  }
+  .listadoResultado {
+    list-style-type: none;
+    margin: 10px;
+  }
+  .itemGanadores {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(231, 51, 40);
+  }
+  .itemSuplentes {
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(60, 60, 59);
+  }
+  .linkPDF {
+    font-size: 16px;
+    margin: 20px;
+    color: rgb(231, 51, 40);
+    font-weight: bold;
   }
