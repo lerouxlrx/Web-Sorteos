@@ -28,6 +28,21 @@ body {
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
+.btn {
+  background-color: rgb(23, 71, 145);
+  color: #fff;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+}
+.btn:hover {
+  background-color: #0056b3;
+}
 
   /*Home*/
   .formulario {
@@ -46,20 +61,6 @@ body {
       width: 75%;
       box-sizing: border-box;
   }
-  .btnHome {
-    background-color: rgb(23, 71, 145);
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-  }
-  .btnHome:hover {
-    background-color: #0056b3;
-  }
   .custom-file-label {
       display: inline-block;
       padding: 10px 20px;
@@ -77,6 +78,9 @@ body {
       opacity: 0;
       overflow: hidden;
       z-index: -1;
+  }
+  .btnCargar {
+    max-width: 300px;
   }
 
   /*Configurador*/
@@ -115,19 +119,4 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  .btnRealizar {
-    background-color: rgb(23, 71, 145);
-    color: #fff;
-    margin: 10px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
-    font-size: 20px;
-  }
-  .btnRealizar:hover {
-    background-color: #0056b3;
   }
