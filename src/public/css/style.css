@@ -5,19 +5,23 @@
   color: rgb(60, 60, 59);
   font-family: Arial, sans-serif;
 }
-body {
+.contenedorBody {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 .contenedorHeader {
   background-color: rgb(231, 51, 41);
-  height: 200px;
+  height: 15vh;
+  min-height: 50px;
+  max-height: 200px;
 }
 .contenedorFooter {
   flex: 0 0 auto;
   margin-top: auto;
-  height: 100px;
+  height: 10vh;
+  min-height: 50px;
+  max-height: 150px;
   background-color: rgb(237, 239, 238);
   border-top: 5px solid rgb(23, 71, 145);
 }
@@ -47,7 +51,7 @@ body {
   }
   .titulo {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px;
     font-size: 32px;
   }
 
@@ -133,6 +137,7 @@ body {
     color: rgb(23, 71, 145);
   }
   .subtituloResultado {
+    margin: 10px;
     font-size: 24px;
     color: rgb(23, 71, 145)
   }
@@ -141,7 +146,7 @@ body {
     margin: 10px;
   }
   .itemGanadores {
-    margin: 20px;
+    margin: 10px;
     font-size: 20px;
     font-weight: bold;
     color: rgb(231, 51, 40);

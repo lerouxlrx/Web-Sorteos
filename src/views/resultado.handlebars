@@ -2,16 +2,16 @@
   <h1 class="titulo tituloResultado">¡Ganadores!</h1>
   <ul class="listadoGanadores listadoResultado">
     {{#each participantesGanadores}}
-      <li class="itemGanadores itemResultado">{{this.Nombre}} - Chances: {{this.Chances}}</li>
+      <li class="itemGanadores itemResultado">{{this.Nombre}} - DNI: {{this.DNI}}</li>
     {{/each}}
   </ul>
 
   <h2 class="subtitulo subtituloResultado">Suplentes</h2>
   <ul class="listadoSuplentes listadoResultado">
     {{#each participantesSuplentes}}
-      <li class="itemSuplentes itemResultado">{{this.Nombre}} - Chances: {{this.Chances}}</li>
+      <li class="itemSuplentes itemResultado">{{this.Nombre}} - DNI: {{this.DNI}}</li>
     {{/each}}
   </ul>
-  <a class="linkPDF link" href="/resultado_sorteo.pdf" download="resultadoSorteo.pdf">Descargar en PDF</a>
+  <a class="linkPDF link" href="/resultado_sorteo.pdf" download="resultadoSorteo.pdf">Guardar PDF</a>
 
 </div>

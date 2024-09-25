@@ -79,9 +79,9 @@ function generarPDF(todosConPosicion) {
     doc.moveDown();
 
     // Todos los participantes
-    doc.fontSize(14).text('Participantes:', { underline: true });
+    doc.fontSize(11).text('Participantes:', { underline: true });
     todosConPosicion.forEach((participante) => {
-      doc.text(`Posición: ${participante.Posicion} - ${participante.Nombre} - ${participante.Resultado} con ${participante.Chances} chances.`);
+      doc.text(`Posición: ${participante.Posicion} - ${participante.Nombre} - DNI: ${participante.DNI} - ${participante.Resultado} con ${participante.Chances} chances.`);
     });
 
     // Finalizar y guardar el PDF
