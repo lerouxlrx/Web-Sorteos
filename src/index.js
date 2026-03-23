@@ -1,31 +1,29 @@
 const express = require('express');
 const path = require('path');
-// CORRECCIÓN: Agregamos 'src/' a la ruta
-const sorteoRoutes = require('./src/routes/sorteoRoutes'); 
+const sorteoRoutes = require('./routes/sorteoRoutes');
 const { create } = require('express-handlebars');
 
 const app = express();
-
-// CORRECCIÓN: Estáticos están en src/public
-app.use(express.static(path.join(__dirname, 'src/public')));
-
+app.use(express.static(path.join(__dirname, 'public')));
 const hbs = create({
   extname: '.handlebars',
-  // CORRECCIÓN: Layouts están en src/views/layouts
-  layoutsDir: path.join(__dirname, 'src/views/layouts'),
+  layoutsDir: path.join(__dirname, 'views/layouts'),
   defaultLayout: 'main',
-  partialsDir: path.join(__dirname, 'src/views/partials')
+  partialsDir: path.join(__dirname, 'views/partials')
 });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-// CORRECCIÓN: Views están en src/views
-app.set('views', path.join(__dirname, 'src/views'));
+app.set('views', path.join(__dirname, 'views'));
 
+// Middleware
 app.use(express.urlencoded({ extended: true }));
+
+// Rutas
 app.use('/', sorteoRoutes);
 
-const PORT = process.env.PORT || 3030; // Recomendado para Render
+// Iniciar servidor
+const PORT = 3030;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
