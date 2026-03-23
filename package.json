@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-      "start": "node index.js",
-      "dev": "node --watch src/index.js",
-      "scss": "sass --watch src/public/scss/style.scss src/public/css/style.css",
-      "build": "sass src/public/scss/style.scss src/public/css/style.css",
-      "test": "echo \"Error: no test specified\" && exit 1"
+"start": "node index.js",
+    "dev": "node --watch index.js", 
+    "build": "sass src/public/scss/style.scss src/public/css/style.css",
+    "scss": "sass --watch src/public/scss/style.scss src/public/css/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
     },
   "keywords": [],
   "author": "",
