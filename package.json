@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+      "start": "node src/index.js",
+      "dev": "node --watch src/index.js",
+      "scss": "sass --watch src/public/scss/style.scss src/public/css/style.css",
+      "build": "sass src/public/scss/style.scss src/public/css/style.css",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,6 +23,7 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.7",
+    "sass": "^1.97.3"
   }
 }

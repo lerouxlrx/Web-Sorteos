@@ -1,0 +1,79 @@
+/* --- Animación de entrada --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Pantalla de Impacto (Solo ganadores grandes) --- */
+
+.pantalla-impacto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  animation: fadeIn 0.8s ease-out forwards;
+  text-align: center;
+  h1 {
+    font-size: 4rem;
+    color: $color-azul-natania;
+    margin-bottom: 2rem;
+  }
+  .ganadores-destacados p {
+    font-size: 3rem;
+    font-weight: bold;
+    color: $color-rojo-natania;
+    margin: 15px 0;
+  }
+  #btnVerDetalle {
+    margin-top: 40px;
+    background: none;
+    border: none;
+    color: $color-azul-natania;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+}
+
+/* --- Vista Detallada de Resultados --- */
+.contenedorResultado {
+  animation: fadeIn 0.5s ease-in;
+  text-align: center;
+
+  .tituloResultado { color: $color-azul-natania; }
+  .subtituloResultado {
+    margin: 10px;
+    font-size: 24px;
+    color: $color-azul-natania;
+  }
+
+  .listadoResultado {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  .itemGanadores {
+    font-size: 20px;
+    font-weight: bold;
+    color: $color-rojo-natania;
+    margin: 10px 0;
+  }
+
+  .itemSuplentes {
+    font-size: 16px;
+    font-weight: bold;
+    color: $gris-suplente;
+    margin: 10px 0;
+  }
+
+  .linkPDF {
+    display: inline-block;
+    margin-top: 20px;
+    color: $color-rojo-natania;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}

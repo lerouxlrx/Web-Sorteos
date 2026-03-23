@@ -1,0 +1,82 @@
+  /*Home*/
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.labelHome {
+  font-weight: bold;
+}
+
+.inputHome {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 75%;
+  box-sizing: border-box;
+}
+.file-status {
+  display: none;
+  margin-left: 10px;
+  padding: 4px 8px;
+  background: #e6f7ed; /* fondo verde muy claro */
+  color: #0a7a2a; /* verde oscuro para texto */
+  border-radius: 12px;
+  vertical-align: middle;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  transition: opacity 160ms ease;
+  opacity: 0;
+}
+.custom-file-label {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  background: $color-gris-claro;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  span {
+    color: #fff;
+  }
+  &:hover {
+    background-color: darken($color-gris-claro, 10%);
+  }
+  &.selected {
+    background: none;
+    padding: 10px 0;
+    border-radius: 0;
+    cursor: default;
+    box-shadow: none;
+    span {
+      color: #3c3c3b;
+    }
+    .file-status {
+      display: inline-block;
+      opacity: 1;
+    }        
+  }
+}
+
+.input-file {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+
+.btnCargar {
+  max-width: 300px;
+  &[disabled] {
+    background-color: #9aa6bf; /* azul grisáceo claro */
+    color: #fff;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+  }
+}

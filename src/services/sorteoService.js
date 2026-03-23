@@ -68,33 +68,53 @@ function shuffle(array) {
 // Generar PDF con los resultados
 function generarPDF(todosConPosicion) {
   return new Promise((resolve, reject) => {
-    const doc = new PDFDocument();
+    // Definimos márgenes para tener control
+    const doc = new PDFDocument({ margin: 50 }); 
     const pdfPath = path.join(__dirname, '..', 'public', 'resultado_sorteo.pdf');
     const writeStream = fs.createWriteStream(pdfPath);
     
     doc.pipe(writeStream);
 
-    // Título
-    doc.fontSize(18).text('Resultado del Sorteo', { align: 'center' });
+    // --- ENCABEZADO ---
+    doc.fontSize(20).fillColor('#174791').text('ACTA DE RESULTADOS DEL SORTEO', { align: 'center' });
+    doc.moveDown();
+    doc.fontSize(10).fillColor('black').text(`Fecha: ${new Date().toLocaleDateString()} - Hora: ${new Date().toLocaleTimeString()}`, { align: 'right' });
+    doc.moveDown(2);
+
+    // --- LISTADO DE PARTICIPANTES ---
+    doc.fontSize(14).fillColor('#e73329').text('Listado General de Posiciones:', { underline: true });
     doc.moveDown();
 
-    // Todos los participantes
-    doc.fontSize(11).text('Participantes:', { underline: true });
-    todosConPosicion.forEach((participante) => {
-      doc.text(`Posición: ${participante.Posicion} - ${participante.Nombre} - DNI: ${participante.DNI} - ${participante.Resultado} con ${participante.Chances} chances.`);
+    doc.fontSize(10).fillColor('black');
+
+    todosConPosicion.forEach((participante, index) => {
+      // Verificamos si nos estamos quedando sin espacio en la hoja (y = 700 es casi el final)
+      if (doc.y > 700) { 
+        doc.addPage();
+        // Volvemos a poner el título pequeño en la nueva hoja si queremos
+        doc.fontSize(10).fillColor('grey').text('Continuación de resultados...', { align: 'center' });
+        doc.moveDown();
+      }
+
+      // Estilo diferente para los ganadores en el PDF
+      const esGanador = participante.Resultado === "Ganador";
+      if (esGanador) doc.fillColor('#e73329').font('Helvetica-Bold');
+      else doc.fillColor('black').font('Helvetica');
+
+      doc.text(
+        `Posición ${participante.Posicion}: ${participante.Nombre} - DNI: ${participante.DNI} (${participante.Resultado})`
+      );
+      
+      doc.font('Helvetica').fontSize(8).fillColor('grey').text(`   Chances: ${participante.Chances}`, { indent: 10 });
+      doc.moveDown(0.5);
+      doc.fontSize(10); // Reset tamaño
     });
 
-    // Finalizar y guardar el PDF
+    // Finalizar
     doc.end();
 
-    // Resolver la promesa cuando el PDF se haya escrito
-    writeStream.on('finish', () => {
-      resolve(pdfPath); // Retorna la ruta del PDF generado
-    });
-
-    writeStream.on('error', (error) => {
-      reject(error); // Manejar el error en caso de fallo
-    });
+    writeStream.on('finish', () => resolve(pdfPath));
+    writeStream.on('error', (error) => reject(error));
   });
 }
 

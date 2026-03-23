@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', sorteoRoutes);
 
 // Iniciar servidor
-const PORT = 8080;
+const PORT = 3030;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });

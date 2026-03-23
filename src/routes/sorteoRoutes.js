@@ -19,25 +19,24 @@ router.post('/upload', upload.single('file'), (req, res) => {
   });
 });
 // Configuración a Sorteo
-router.post('/confirmar-sorteo', (req, res) => {
+router.post('/confirmar-sorteo', async (req, res) => {
   const { ganadores, suplentes, participantes } = req.body;
-
   const participantesArray = JSON.parse(participantes);
-  if (!participantesArray || participantesArray.length === 0) {
-    return res.status(400).send('No hay participantes disponibles para el sorteo.');
+
+  try {
+    const resultados = sorteoService.realizarSorteo(participantesArray, ganadores, suplentes);
+    const pdfPath = await sorteoService.generarPDF(resultados.todosConPosicion);
+
+    // IMPORTANTE: Si la petición viene de nuestro JS (fetch), respondemos JSON
+    if (req.headers.accept === 'application/json') {
+      return res.json({ ...resultados, pdfPath });
+    }
+
+    // Si no, renderizamos normal (fallback)
+    res.render('resultado', { ...resultados, pdfPath });
+  } catch (error) {
+    res.status(500).json({ error: 'Error procesando el sorteo' });
   }
-
-  const { todosConPosicion, participantesGanadores, participantesSuplentes } = sorteoService.realizarSorteo(participantesArray, ganadores, suplentes);
-
-  // Generar PDF con el resultado
-  sorteoService.generarPDF(todosConPosicion)
-    .then(pdfPath => {
-      res.render('resultado', { participantesGanadores, participantesSuplentes, pdfPath });
-    })
-    .catch(error => {
-      console.error(error);
-      res.status(500).send('Error al generar el PDF.');
-    });
 });
 
 module.exports = router;

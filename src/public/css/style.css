@@ -1,21 +1,25 @@
-/*General*/
+@charset "UTF-8";
+/* General */
 * {
   padding: 0px;
   margin: 0px;
-  color: rgb(60, 60, 59);
+  color: #3c3c3b;
   font-family: Arial, sans-serif;
 }
+
 .contenedorBody {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 .contenedorHeader {
   background-color: rgb(231, 51, 41);
   height: 15vh;
   min-height: 50px;
   max-height: 200px;
 }
+
 .contenedorFooter {
   flex: 0 0 auto;
   margin-top: auto;
@@ -25,6 +29,7 @@
   background-color: rgb(237, 239, 238);
   border-top: 5px solid rgb(23, 71, 145);
 }
+
 .contenedorMain {
   padding: 20px;
   background-color: rgb(237, 239, 238);
@@ -33,133 +38,309 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-  /*Paginas*/
-  .btn {
-    background-color: rgb(23, 71, 145);
-    color: #fff;
-    margin: 10px;
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  .titulo {
-    text-align: center;
-    margin: 20px;
-    font-size: 32px;
-  }
+/* Paginas */
+.btn {
+  background-color: rgb(23, 71, 145);
+  color: #fff;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+.btn:hover {
+  background-color: #0056b3;
+}
 
-  /*Home*/
-  .formulario {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-  }
-  .labelHome {
-      font-weight: bold;
-  }
-  .inputHome {
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      width: 75%;
-      box-sizing: border-box;
-  }
-  .custom-file-label {
-      display: inline-block;
-      padding: 10px 20px;
-      border: none;
-      background: rgb(124, 120, 120);
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-  }
-  .input-file {
-      position: absolute;
-      width: 0.1px;
-      height: 0.1px;
-      opacity: 0;
-      overflow: hidden;
-      z-index: -1;
-  }
-  .btnCargar {
-    max-width: 300px;
-  }
+.titulo {
+  text-align: center;
+  margin: 20px;
+  font-size: 32px;
+}
 
-  /*Configurador y resultados*/
-  .contenedor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+/*Home*/
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 
-  /*Configurador*/
-  .contenedorConfigurar {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  .contenedorInformacion {
-    align-items: center;
-  }
-  .informacionConfigurar {
-    margin-bottom: 10px;
-  }
-  .contenedorFormConfigurar {
-    width: 80%;
-  }
-  .completarDatos {
-    width: 100%;
-    padding: 10px;
-  }
-  .contenedorFormConfigurar label {
-    font-weight: bold;
-  }
-  .contenedorFormConfigurar input[type="number"] {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-  }
+.labelHome {
+  font-weight: bold;
+}
 
-  /*Resultados*/
-  .tituloResultado {
-    color: rgb(23, 71, 145);
+.inputHome {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 75%;
+  box-sizing: border-box;
+}
+
+.file-status {
+  display: none;
+  margin-left: 10px;
+  padding: 4px 8px;
+  background: #e6f7ed; /* fondo verde muy claro */
+  color: #0a7a2a; /* verde oscuro para texto */
+  border-radius: 12px;
+  vertical-align: middle;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  transition: opacity 160ms ease;
+  opacity: 0;
+}
+
+.custom-file-label {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  background: rgb(124, 120, 120);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.custom-file-label span {
+  color: #fff;
+}
+.custom-file-label:hover {
+  background-color: rgb(98.0819672131, 94.9180327869, 94.9180327869);
+}
+.custom-file-label.selected {
+  background: none;
+  padding: 10px 0;
+  border-radius: 0;
+  cursor: default;
+  box-shadow: none;
+}
+.custom-file-label.selected span {
+  color: #3c3c3b;
+}
+.custom-file-label.selected .file-status {
+  display: inline-block;
+  opacity: 1;
+}
+
+.input-file {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.btnCargar {
+  max-width: 300px;
+}
+.btnCargar[disabled] {
+  background-color: #9aa6bf; /* azul grisáceo claro */
+  color: #fff;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* --- Pantalla de Configuración --- */
+.contenedorConfigurar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contenedorInformacion {
+  align-items: center;
+}
+
+.informacionConfigurar {
+  margin-bottom: 10px;
+}
+
+.contenedorFormConfigurar {
+  width: 80%;
+}
+.contenedorFormConfigurar label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+.contenedorFormConfigurar input[type=number] {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+.contenedorFormConfigurar input[type=number]:focus {
+  outline: none;
+  border-color: rgb(23, 71, 145);
+}
+.contenedorFormConfigurar input[type=number].input-ready {
+  background-color: #e9ecef !important;
+  color: rgb(46, 139, 87) !important;
+  font-weight: bold;
+  border-color: rgb(46, 139, 87) !important;
+  pointer-events: none;
+}
+
+.completarDatos {
+  width: 100%;
+  padding: 10px;
+}
+
+/* --- Botón con Barra de Carga --- */
+@keyframes loadingBar {
+  0% {
+    background-size: 0% 100%;
   }
-  .subtituloResultado {
-    margin: 10px;
-    font-size: 24px;
-    color: rgb(23, 71, 145)
+  100% {
+    background-size: 100% 100%;
   }
-  .listadoResultado {
-    list-style-type: none;
-    margin: 10px;
+}
+.btnRealizar {
+  position: relative;
+  background-image: linear-gradient(rgb(140, 212, 171), rgb(140, 212, 171));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-color 0.3s;
+}
+.btnRealizar.loading {
+  pointer-events: none;
+  animation: loadingBar 3s linear forwards;
+}
+.btnRealizar.ready {
+  background-color: rgb(46, 139, 87) !important;
+  background-image: none;
+  color: white;
+}
+
+/* --- Overlay de Cuenta Regresiva (Aparece al sortear) --- */
+#countdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(231, 51, 41, 0.9);
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#countdown-overlay .countdown-number {
+  font-size: 15rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  animation: scaleNumber 1s infinite;
+}
+
+@keyframes scaleNumber {
+  0% {
+    transform: scale(1);
+    opacity: 1;
   }
-  .itemGanadores {
-    margin: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(231, 51, 40);
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
   }
-  .itemSuplentes {
-    margin: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: rgb(60, 60, 59);
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
   }
-  .linkPDF {
-    font-size: 16px;
-    margin: 20px;
-    color: rgb(231, 51, 40);
-    font-weight: bold;
+}
+/* --- Animación de entrada --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* --- Pantalla de Impacto (Solo ganadores grandes) --- */
+.pantalla-impacto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  animation: fadeIn 0.8s ease-out forwards;
+  text-align: center;
+}
+.pantalla-impacto h1 {
+  font-size: 4rem;
+  color: rgb(23, 71, 145);
+  margin-bottom: 2rem;
+}
+.pantalla-impacto .ganadores-destacados p {
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgb(231, 51, 41);
+  margin: 15px 0;
+}
+.pantalla-impacto #btnVerDetalle {
+  margin-top: 40px;
+  background: none;
+  border: none;
+  color: rgb(23, 71, 145);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* --- Vista Detallada de Resultados --- */
+.contenedorResultado {
+  animation: fadeIn 0.5s ease-in;
+  text-align: center;
+}
+.contenedorResultado .tituloResultado {
+  color: rgb(23, 71, 145);
+}
+.contenedorResultado .subtituloResultado {
+  margin: 10px;
+  font-size: 24px;
+  color: rgb(23, 71, 145);
+}
+.contenedorResultado .listadoResultado {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+.contenedorResultado .itemGanadores {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(231, 51, 41);
+  margin: 10px 0;
+}
+.contenedorResultado .itemSuplentes {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(60, 60, 59);
+  margin: 10px 0;
+}
+.contenedorResultado .linkPDF {
+  display: inline-block;
+  margin-top: 20px;
+  color: rgb(231, 51, 41);
+  font-weight: bold;
+  text-decoration: none;
+}
+.contenedorResultado .linkPDF:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=style.css.map */

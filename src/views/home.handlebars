@@ -4,9 +4,12 @@
     <div class="formulario">
 {{!--       <label class="labelHome" for="sorteo">Nombre del sorteo:</label>
       <input class="inputTextHome inputHome" type="text" id="sorteo" name="sorteo"> --}}
-      <label for="file" class="custom-file-label">  Elegir base (.xlsx)<input class="input-file" type="file" id="file" name="file" accept=".xlsx" required>
+      <label for="file" class="custom-file-label">
+        <span class="file-label-text">Elegir base (.xlsx)</span>
+        <span class="file-status" aria-live="polite" aria-hidden="true">Base seleccionada ✔</span>
+        <input class="input-file" type="file" id="file" name="file" accept=".xlsx" required>
       </label>
-      <button class="btn btnHome btnCargar" type="submit">Cargar base</button>
+      <button class="btn btnHome btnCargar" type="submit" disabled>Cargar base</button>
     </div>
   </form>
 </div>

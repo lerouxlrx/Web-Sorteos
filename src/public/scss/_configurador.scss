@@ -1,0 +1,106 @@
+/* --- Pantalla de Configuración --- */
+.contenedorConfigurar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contenedorInformacion {
+  align-items: center;
+}
+
+.informacionConfigurar {
+  margin-bottom: 10px;
+}
+
+.contenedorFormConfigurar {
+  width: 80%;
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="number"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-azul-natania; 
+    }
+
+    // Estado cuando ya se cargó el sorteo (grisado)
+    &.input-ready {
+      background-color: #e9ecef !important;
+      color: $color-verde-oscuro !important;
+      font-weight: bold;
+      border-color: $color-verde-oscuro !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.completarDatos {
+  width: 100%;
+  padding: 10px;
+}
+
+/* --- Botón con Barra de Carga --- */
+@keyframes loadingBar {
+  0% { background-size: 0% 100%; }
+  100% { background-size: 100% 100%; }
+}
+
+.btnRealizar {
+  position: relative;
+  background-image: linear-gradient($color-verde-claro, $color-verde-claro);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-color 0.3s;
+
+  &.loading {
+    pointer-events: none;
+    animation: loadingBar 3s linear forwards;
+  }
+
+  &.ready {
+    background-color: $color-verde-oscuro !important;
+    background-image: none;
+    color: white;
+  }
+}
+
+/* --- Overlay de Cuenta Regresiva (Aparece al sortear) --- */
+#countdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  // Usamos el azul de Natania con transparencia
+  background-color: $color-rojo-natania-transparent; 
+  z-index: 99999; 
+  display: flex; // El JS lo inserta con este ID
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .countdown-number {
+    font-size: 15rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 30px rgba(0,0,0,0.5);
+    animation: scaleNumber 1s infinite;
+  }
+}
+
+@keyframes scaleNumber {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
